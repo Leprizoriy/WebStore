@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebStore.Models;
 
 namespace WebStore.Data
 {
@@ -8,5 +9,7 @@ namespace WebStore.Data
         {
             
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }
