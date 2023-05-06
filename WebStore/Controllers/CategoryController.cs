@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebStore.Data;
+using WebStore.DataAccess.Data;
 using WebStore.Models;
 
 namespace WebStore.Controllers
