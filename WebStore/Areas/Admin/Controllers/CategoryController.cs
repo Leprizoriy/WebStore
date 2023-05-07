@@ -3,8 +3,9 @@ using WebStore.DataAccess.Data;
 using WebStore.DataAccess.Repository.IRepository;
 using WebStore.Models;
 
-namespace WebStore.Controllers
+namespace WebStore.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
