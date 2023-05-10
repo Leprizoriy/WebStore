@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="card-body p-4">
-        <form method="post" class="row">
+        <form method="post" class="row" enctype="multipart/form-data">
             <div class="p-2">
                 <div class="mb-3 row py-1 px-3">
                     <label asp-for="Product.Title" class="p-0"></label>
@@ -60,8 +60,7 @@
                 </div>
                 <div class="mb-3 row py-1 px-3">
                     <label asp-for="Product.ImageUrl" class="p-0"></label>
-                    <input asp-for="Product.ImageUrl" class="form-control border-secondary" />
-                    <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
+                    <input type="file" class="form-control border-secondary" />
                 </div>
 
                 <div class="row pt-2">
