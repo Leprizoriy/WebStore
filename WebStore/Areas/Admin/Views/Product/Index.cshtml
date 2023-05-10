@@ -19,7 +19,7 @@
                     <th>Category</th>
                     <th>
                         <div class="col-12 text-end">
-                            <a asp-controller="Product" asp-action="Create" class="btn btn-secondary"><i class="bi bi-plus-square"></i> New Product</a>
+                            <a asp-controller="Product" asp-action="Upsert" class="btn btn-secondary"><i class="bi bi-plus-square"></i> New Product</a>
                         </div>
                     </th>
                 </tr>
@@ -35,7 +35,7 @@
                         <td></td>
                         <td>
                             <div class="w-75 btn-group" role="group">
-                                <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">
+                                <a asp-controller="Product" asp-action="Upsert" asp-route-id="@item.Id" class="btn btn-primary mx-2">
                                     <i class="bi bi-pencil-square"></i> Edit
                                 </a>
                                 <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2">
