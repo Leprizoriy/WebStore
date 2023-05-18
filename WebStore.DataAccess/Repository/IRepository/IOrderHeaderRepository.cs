@@ -7,7 +7,7 @@ using WebStore.Models;
 
 namespace WebStore.DataAccess.Repository.IRepository
 {
-    public interface IOderHeaderRepository : IRepository<OrderHeader>
+    public interface IOrderHeaderRepository : IRepository<OrderHeader>
     {
         void Update(OrderHeader obj);
     }
