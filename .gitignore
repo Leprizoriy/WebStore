@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 /WebStore/wwwroot/images/product/
 /WebStore/wwwroot/images/lawn_leaf.jpg
+/WebStore/appsettings.json
