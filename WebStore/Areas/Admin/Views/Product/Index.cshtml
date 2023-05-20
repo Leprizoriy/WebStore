@@ -3,8 +3,11 @@
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-6 text-end">
                 <h2 class="text-white py-2">Product List</h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Product" asp-action="Upsert" class="btn btn-primary bg-gradient"><i class="bi bi-plus-square"></i> New Product</a>
             </div>
         </div>
     </div>
@@ -17,11 +20,7 @@
                     <th>Price</th>
                     <th>Author</th>
                     <th>Category</th>
-                    <th>
-                        <div class="col-12 text-end">
-                            <a asp-controller="Product" asp-action="Upsert" class="btn btn-secondary"><i class="bi bi-plus-square"></i> New Product</a>
-                        </div>
-                    </th>
+                    <th></th>
                 </tr>
             </thead>
         </table>
