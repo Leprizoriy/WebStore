@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebStore.DataAccess.Repository.IRepository;
 using WebStore.Models;
+using WebStore.Models.ViewModels;
 using WebStore.Utility;
 
 namespace WebStore.Areas.Admin.Controllers
 {
-	[Area("Admin")]
-    [Authorize(Roles = SD.Role_Admin)]
+    [Area("Admin")]
     public class OrderController : Controller
-	{
-		private readonly IUnitOfWork _unitOfWork;
+    {
+        private readonly IUnitOfWork _unitOfWork;
 
         public OrderController(IUnitOfWork unitOfWork)
         {
@@ -20,16 +20,27 @@ namespace WebStore.Areas.Admin.Controllers
         }
 
         public IActionResult Index()
-		{
-			return View();
-		}
+        {
+            return View();
+        }
+
+        public IActionResult Details(int orderId)
+        {
+            OrderVM orderVM = new()
+            {
+                OrderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == orderId, includeProperties: "ApplicationUser"),
+                OrderDetails = _unitOfWork.OrderDetail.GetAll(u => u.OrderHeaderId == orderId, includeProperties: "Product")
+            };
+
+            return View(orderVM);
+        }
 
         #region API CALLS
 
         [HttpGet]
-		public IActionResult GetAll(string status)
-		{
-			IEnumerable<OrderHeader> objOrderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
+        public IActionResult GetAll(string status)
+        {
+            IEnumerable<OrderHeader> objOrderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
 
             switch (status)
             {
@@ -50,8 +61,8 @@ namespace WebStore.Areas.Admin.Controllers
             }
 
             return Json(new { data = objOrderHeaders });
-		}
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
